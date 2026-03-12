@@ -28,30 +28,32 @@ function Dashboard() {
 
   return (
     <div>
+    <div className="d-flex align-items-center justify-content-between">
+    <h1>Device Monitoring Dashboard</h1>
 
-      <h1>Device Monitoring Dashboard</h1>
+<div className="controls">
 
-      <div className="controls">
+  <input
+    type="text"
+    placeholder="Search device..."
+    value={searchTerm}
+    onChange={(e) => setSearchTerm(e.target.value)}
+  />
 
-        <input
-          type="text"
-          placeholder="Search device..."
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-        />
+  <select
+    value={statusFilter}
+    onChange={(e) => setStatusFilter(e.target.value)}
+  >
+    <option value="All">All</option>
+    <option value="Online">Online</option>
+    <option value="Offline">Offline</option>
+  </select>
 
-        <select
-          value={statusFilter}
-          onChange={(e) => setStatusFilter(e.target.value)}
-        >
-          <option value="All">All</option>
-          <option value="Online">Online</option>
-          <option value="Offline">Offline</option>
-        </select>
+</div>
+    </div>
+     
 
-      </div>
-
-      <div className="device-grid">
+      <div className="row ">
         {filteredDevices.map((device) => (
           <DeviceCard key={device.id} device={device} />
         ))}
