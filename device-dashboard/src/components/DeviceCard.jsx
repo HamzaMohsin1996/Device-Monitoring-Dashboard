@@ -1,8 +1,9 @@
 function DeviceCard({ device }) {
     return (
       <div className="device-card">
-        <h3>{device.title}</h3>
-        <p>{device.body}</p>
+        <h3>{device.device}</h3>
+        <p>Status: {device.status}</p>
+        <p>Measurement: {device.value}</p>
       </div>
     );
   }
